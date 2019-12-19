@@ -371,7 +371,8 @@ if(CAF_SANITIZERS)
 endif()
 # -pthread is ignored on MacOSX but required on other platforms
 if(NOT APPLE AND NOT WIN32)
-    build_string("EXTRA_FLAGS" "-pthread")
+  build_string("EXTRA_FLAGS" "-pthread")
+  list(APPEND CAF_EXTRA_LDFLAGS -pthread)
 endif()
 # -fPIC generates warnings on MinGW and Cygwin plus extra setup steps needed on MinGW
 if(MINGW)
